@@ -1,1 +1,13 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@font-face{
+  font-family: "Arena";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./assets/fonts/arena-font/Arena-rvwaK.ttf') format('truetype');
+}
+
+@theme{
+  --font-title: "Arena", sans-serif;
+}
