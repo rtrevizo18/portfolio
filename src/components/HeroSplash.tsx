@@ -40,7 +40,6 @@ function HeroSplash() {
             <span className="rounded-full border border-white/20 px-4 py-2 backdrop-blur-sm">
               Game Developer
             </span>
-            <span className="rounded-full border border-white/20 px-4 py-2 backdrop-blur-sm"></span>
           </div>
         </div>
       </div>
