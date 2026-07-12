@@ -1,5 +1,6 @@
-import cougarCsLogo from "../assets/CougarCS.svg";
-import kippTexasLogo from "../assets/KIPPTexas.svg"
+import CougarCSLogo from "../assets/CougarCSLogo";
+import KIPPTexasLogo from "../assets/KIPPTexasLogo";
+import PwCLogo from "../assets/PwCLogo";
 import ExperienceCard from "./ExperienceCard";
 
 function ExperienceSection() {
@@ -16,16 +17,29 @@ function ExperienceSection() {
           <ExperienceCard
             title="CougarCS"
             roles={["Corporate Relations Officer", "Web Dev Member"]}
-            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization&apos;s online presence clear, functional, and up to date."
-            logoSrc={cougarCsLogo}
-            logoAlt="CougarCS logo"
+            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+            logo={CougarCSLogo}
+            color="#C80F2E"
+            logoWidth={100}
+            logoHeight={114}
           />
           <ExperienceCard
             title="KIPP Texas: Public Schools"
             roles={["IT Operations Intern"]}
-            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization&apos;s online presence clear, functional, and up to date."
-            logoSrc={kippTexasLogo}
-            logoAlt="KIPP Texas: Public Schools Logo"
+            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+            logo={KIPPTexasLogo}
+            color="#1E5AA8"
+            logoWidth={176}
+            logoHeight={50}
+          />
+          <ExperienceCard
+            title="PwC"
+            roles={["Cyber, Risk, & Regulation Consulting Intern"]}
+            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+            logo={PwCLogo}
+            color="#FD5108"
+            logoWidth={144}
+            logoHeight={74}
           />
         </div>
       </div>
