@@ -8,7 +8,7 @@ function AboutSection() {
     >
       <div className="flex w-full flex-col gap-10 lg:flex-row lg:items-center lg:justify-around lg:gap-16">
         <div className="order-2 max-w-4xl lg:order-1">
-          <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.55em] text-white/55 sm:text-[0.75rem]">
+          <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.55em] text-white/80 sm:text-[0.75rem]">
             About
           </p>
           <h2 className="max-w-3xl font-title uppercase text-[clamp(2.8rem,8vw,7rem)] leading-[0.92] tracking-[0.04em] text-white">

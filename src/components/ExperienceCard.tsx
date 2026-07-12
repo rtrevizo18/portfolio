@@ -22,7 +22,7 @@ function ExperienceCard({
           <h2 className="font-subway text-[clamp(2.2rem,5.5vw,4.2rem)] font-black leading-[0.9] tracking-wider text-white">
             {title}
           </h2>
-          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#C80F2E]">
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-md font-semibold uppercase tracking-[0.28em] text-[#C80F2E]">
             {roles.map((role, index) => (
               <span key={role} className="flex items-center gap-3">
                 {index > 0 ? <span className="text-white/30">/</span> : null}
