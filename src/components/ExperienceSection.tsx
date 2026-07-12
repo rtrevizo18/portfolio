@@ -17,20 +17,6 @@ function ExperienceSection() {
           description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization&apos;s online presence clear, functional, and up to date."
           logoSrc={cougarCsLogo}
           logoAlt="CougarCS logo"
-          galleryImages={[
-            {
-              src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-              alt: "Team members collaborating around a laptop",
-            },
-            {
-              src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-              alt: "Developer working on code",
-            },
-            {
-              src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-              alt: "Meeting room with people discussing a project",
-            },
-          ]}
         />
       </div>
     </section>
