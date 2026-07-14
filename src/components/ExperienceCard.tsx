@@ -1,4 +1,13 @@
-import type { ComponentType } from "react";
+import type { ComponentType, KeyboardEvent, ReactNode, SVGProps } from "react";
+import { useEffect, useState } from "react";
+import BadgeIcon from "./BadgeIcon";
+
+type ExperienceMediaSide = "left" | "right";
+
+type ExperienceFooterBadge = {
+  label: string;
+  Icon: ComponentType<SVGProps<SVGSVGElement>>;
+};
 
 type ExperienceCardProps = {
   title: string;
@@ -8,7 +17,9 @@ type ExperienceCardProps = {
   color: string;
   logoWidth?: number;
   logoHeight?: number;
-  footerIconLetters?: string[];
+  footerBadgeIcons?: ExperienceFooterBadge[];
+  mediaSide?: ExperienceMediaSide;
+  media: ReactNode;
 };
 
 function ExperienceCard({
@@ -19,15 +30,61 @@ function ExperienceCard({
   color,
   logoWidth,
   logoHeight,
-  footerIconLetters = ["A", "B", "C", "G", "L"],
+  footerBadgeIcons = [],
+  mediaSide = "right",
+  media,
 }: ExperienceCardProps) {
   const renderedLogoWidth = logoWidth ?? 144;
   const renderedLogoHeight = logoHeight ?? 34;
+  const [isPinnedOpen, setIsPinnedOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredFooterBadge, setHoveredFooterBadge] = useState<string | null>(null);
+
+  const isExpanded = isPinnedOpen || isHovered;
+
+  useEffect(() => {
+    if (!isExpanded) {
+      setIsPinnedOpen(false);
+    }
+  }, [isExpanded]);
+
+  const handleToggleOpen = () => {
+    setIsPinnedOpen((current) => !current);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleToggleOpen();
+    }
+
+    if (event.key === "Escape") {
+      setIsPinnedOpen(false);
+    }
+  };
 
   return (
-    <div className="group">
-      <article className="flex flex-col gap-6 rounded-3xl border-2 border-white/50 bg-white/2 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
-        <div className="max-w-3xl">
+    <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 sm:px-10 lg:px-14">
+      <article
+        role="button"
+        tabIndex={0}
+        aria-pressed={isExpanded}
+        aria-label={`${title} experience card`}
+        onClick={handleToggleOpen}
+        onKeyDown={handleKeyDown}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setIsHovered(false);
+          }
+        }}
+        className={`group/card mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-3xl border-2 border-white/45 bg-white/3 p-6 text-left outline-none transition-[max-width,transform,border-color,background-color,box-shadow] duration-700 ease-out sm:p-8 lg:items-stretch lg:gap-8 ${mediaSide === "left" ? "lg:flex-row-reverse" : "lg:flex-row"
+          } ${isExpanded ? "border-white/65 bg-white/6 shadow-[0_28px_70px_rgba(0,0,0,0.38)]" : ""}`}
+        style={{ maxWidth: isExpanded ? "calc(100vw - 3rem)" : "72rem" }}
+      >
+        <div className="max-w-3xl flex-1">
           <h2 className="font-subway text-[clamp(2.2rem,5.5vw,4.2rem)] font-black leading-[0.9] tracking-wider text-white">
             {title}
           </h2>
@@ -46,24 +103,45 @@ function ExperienceCard({
             {description}
           </p>
 
-          <div className="mt-8 flex items-center gap-3">
-            {footerIconLetters.map((letter) => (
-              <span
-                key={letter}
-                style={{ borderColor: color, color }}
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-[#C80F2E]/35 bg-black text-[2rem] font-semibold uppercase tracking-[0.2em] text-[#C80F2E]"
+          <div className="mt-8 flex flex-wrap items-start gap-4">
+            {footerBadgeIcons.map(({ label, Icon }) => (
+              <div
+                key={label}
+                onMouseEnter={() => setHoveredFooterBadge(label)}
+                onMouseLeave={() => setHoveredFooterBadge(null)}
               >
-                {letter}
-              </span>
+                <BadgeIcon
+                  label={label}
+                  Icon={Icon}
+                  color={color}
+                  isHovered={hoveredFooterBadge === label}
+                />
+              </div>
             ))}
           </div>
         </div>
-        <div className="mr-6 flex items-center justify-center">
+
+        <div
+          className={`relative min-h-60 overflow-hidden rounded-4xl border border-white/12 bg-black/50 transition-[width,min-height,opacity,transform] duration-700 ease-out lg:flex-none ${mediaSide === "left" ? "lg:mr-auto" : "lg:ml-auto"
+            } ${isExpanded ? "lg:w-[min(42vw,36rem)]" : "lg:w-50"}`}
+        >
           <div
-            className="flex items-center justify-center rounded-3xl p-3"
-            style={{ width: renderedLogoWidth, height: renderedLogoHeight }}
+            className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-300 ${isExpanded ? "opacity-0" : "opacity-100"
+              }`}
           >
-            <Logo color={color} width={renderedLogoWidth} height={renderedLogoHeight} />
+            <div
+              className="flex items-center justify-center rounded-3xl p-3 transition-transform duration-500 group-hover/card:scale-[0.98]"
+              style={{ width: renderedLogoWidth, height: renderedLogoHeight }}
+            >
+              <Logo color={color} width={renderedLogoWidth} height={renderedLogoHeight} />
+            </div>
+          </div>
+
+          <div
+            className={`absolute inset-0 transition-opacity duration-500 ${isExpanded ? "opacity-100" : "opacity-0"
+              }`}
+          >
+            {media}
           </div>
         </div>
       </article>

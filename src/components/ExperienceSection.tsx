@@ -1,7 +1,22 @@
-import CougarCSLogo from "../assets/CougarCSLogo";
+import portraitSrc from "../assets/Ricardo_Trevizo_Image.png";
 import KIPPTexasLogo from "../assets/KIPPTexasLogo";
 import PwCLogo from "../assets/PwCLogo";
 import ExperienceCard from "./ExperienceCard";
+import { CogBadgeIcon } from "./BadgeIcons";
+
+const footerBadgeIcons = [
+  { label: "Cog", Icon: CogBadgeIcon }
+];
+
+const sharedMedia = (
+  <div className="absolute inset-0 p-4">
+    <img
+      className="h-full w-full rounded-3xl object-cover object-center"
+      src={portraitSrc}
+      alt="Ricardo Trevizo portrait"
+    />
+  </div>
+);
 
 function ExperienceSection() {
   return (
@@ -13,35 +28,33 @@ function ExperienceSection() {
         <p className="mb-8 text-[0.68rem] font-semibold uppercase tracking-[0.55em] text-white/80 sm:text-[0.75rem]">
           Experience
         </p>
-        <div className="flex flex-col gap-8">
-          <ExperienceCard
-            title="CougarCS"
-            roles={["Corporate Relations Officer", "Web Dev Member"]}
-            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
-            logo={CougarCSLogo}
-            color="#C80F2E"
-            logoWidth={100}
-            logoHeight={114}
-          />
-          <ExperienceCard
-            title="KIPP Texas: Public Schools"
-            roles={["IT Operations Intern"]}
-            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
-            logo={KIPPTexasLogo}
-            color="#1E5AA8"
-            logoWidth={176}
-            logoHeight={50}
-          />
-          <ExperienceCard
-            title="PwC"
-            roles={["Cyber, Risk, & Regulation Consulting Intern"]}
-            description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
-            logo={PwCLogo}
-            color="#FD5108"
-            logoWidth={144}
-            logoHeight={74}
-          />
-        </div>
+      </div>
+
+      <div className="flex flex-col gap-8">
+        <ExperienceCard
+          title="KIPP Texas: Public Schools"
+          roles={["IT Operations Intern"]}
+          description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+          logo={KIPPTexasLogo}
+          color="#1E5AA8"
+          logoWidth={176}
+          logoHeight={50}
+          mediaSide="right"
+          media={sharedMedia}
+          footerBadgeIcons={footerBadgeIcons}
+        />
+        <ExperienceCard
+          title="PwC"
+          roles={["Cyber, Risk, & Regulation Consulting Intern"]}
+          description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+          logo={PwCLogo}
+          color="#FD5108"
+          logoWidth={144}
+          logoHeight={74}
+          mediaSide="left"
+          media={sharedMedia}
+          footerBadgeIcons={footerBadgeIcons}
+        />
       </div>
     </section>
   );
