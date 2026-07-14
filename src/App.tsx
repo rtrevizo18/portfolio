@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import HeroSplash from "./components/HeroSplash";
 import Navbar from "./components/Navbar";
 import ExperienceSection from "./components/ExperienceSection";
+import ProjectsSection from "./components/ProjectsSection";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
         <AboutSection />
         <ExperienceSection />
+        <ProjectsSection />
         <Footer />
       </section>
     </main>

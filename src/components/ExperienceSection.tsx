@@ -22,12 +22,12 @@ const sharedMedia = (
 function ExperienceSection() {
   return (
     <section
-      id="experience"
+      id="work"
       className="border-t border-white/10 px-6 py-16 sm:px-10 lg:px-14"
     >
       <div className="max-w-5xl">
         <p className="mb-8 text-[0.68rem] font-semibold uppercase tracking-[0.55em] text-white/80 sm:text-[0.75rem]">
-          Experience
+          Work
         </p>
       </div>
 
