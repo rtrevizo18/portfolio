@@ -2,10 +2,11 @@ import portraitSrc from "../assets/Ricardo_Trevizo_Image.png";
 import KIPPTexasLogo from "../assets/KIPPTexasLogo";
 import PwCLogo from "../assets/PwCLogo";
 import ExperienceCard from "./ExperienceCard";
-import { CogBadgeIcon } from "./BadgeIcons";
+import { CogBadgeIcon, ReactBadgeIcon } from "./BadgeIcons";
 
 const footerBadgeIcons = [
-  { label: "Cog", Icon: CogBadgeIcon }
+  { label: "SysAdmin", Icon: CogBadgeIcon },
+  { label: "React", Icon: ReactBadgeIcon },
 ];
 
 const sharedMedia = (
