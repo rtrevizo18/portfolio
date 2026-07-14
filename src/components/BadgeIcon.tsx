@@ -5,28 +5,48 @@ type BadgeIconProps = {
   color: string;
   isHovered: boolean;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
+  size?: "md" | "sm";
 };
 
-function BadgeIcon({ label, color, isHovered, Icon }: BadgeIconProps) {
+function BadgeIcon({
+  label,
+  color,
+  isHovered,
+  Icon,
+  size = "md",
+}: BadgeIconProps) {
+  const isCompact = size === "sm";
+
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div
+      className={`${isCompact ? "relative flex h-10 w-10 items-center justify-center" : "flex flex-col items-center gap-2"}`}
+    >
       <div
-        className="rounded-full border border-white/20 bg-black/80 p-4"
+        className={`rounded-full border border-white/20 bg-black/80 ${isCompact ? "p-2.5" : "p-4"}`}
         style={{ borderColor: color }}
       >
         <Icon
           aria-hidden="true"
           focusable="false"
-          className="h-12 w-12 drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)]"
+          className={`drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)] ${isCompact ? "h-7 w-7" : "h-12 w-12"}`}
           style={{ color }}
         />
       </div>
-      <span
-        className={`text-[0.62rem] font-semibold uppercase tracking-[0.35em] text-white/65 transition-all duration-200 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+      {isCompact ? (
+        <span
+          className={`pointer-events-none absolute left-1/2 top-full mt-1 w-max -translate-x-1/2 text-[0.55rem] font-semibold uppercase tracking-[0.28em] text-white/65 transition-all duration-200 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"}`}
+        >
+          {label}
+        </span>
+      ) : (
+        <span
+          className={`text-[0.62rem] font-semibold uppercase tracking-[0.35em] text-white/65 transition-all duration-200 ${
+            isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
           }`}
-      >
-        {label}
-      </span>
+        >
+          {label}
+        </span>
+      )}
     </div>
   );
 }
