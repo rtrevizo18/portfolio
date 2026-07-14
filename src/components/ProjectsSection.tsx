@@ -1,6 +1,16 @@
 import { useState } from "react";
 import type { ComponentType, SVGProps } from "react";
 
+import cougarCSPortalSrc from "../assets/CougarCS_Portal.png";
+import aiEmsSrc from "../assets/AI_EMS_Image.png";
+import luminescenceSrc from "../assets/Luminescence_Image.png";
+import newPlacesSrc from "../assets/NewPlaces_Image.png";
+import portfolioSrc from "../assets/Portfolio_Image.png";
+import tecpacsSrc from "../assets/Tecpacs_Image.png";
+import uybSrc from "../assets/UYB_Image.png";
+import volunterSrc from "../assets/Volunter_Image.png";
+import zentraSrc from "../assets/Zentra_Image.png";
+
 import BadgeIcon from "./BadgeIcon";
 import {
   CSharpBadgeIcon,
@@ -35,17 +45,21 @@ type Project = {
   summary: string;
   accent: string;
   monogram: string;
+  imageSrc?: string;
+  imageAlt?: string;
   badges: ProjectBadge[];
 };
 
 const projects: Project[] = [
   {
-    title: "CougarCS Talent-Sourcing Portal (WIP)",
+    title: "CCS Recruitment Portal (WIP)",
     date: "Jul 2026 - Present",
     summary:
       "Internal recruiting platform that helps CougarCS source, organize, and manage internship opportunities and company outreach.",
     accent: "#1E5AA8",
     monogram: "CS",
+    imageSrc: cougarCSPortalSrc,
+    imageAlt: "CougarCS Talent-Sourcing Portal preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "TypeScript", Icon: TypeScriptBadgeIcon },
@@ -60,6 +74,8 @@ const projects: Project[] = [
       "Personal portfolio showcasing projects, experience, resume, and technical skills with a polished, accessible UI.",
     accent: "#FD5108",
     monogram: "PW",
+    imageSrc: portfolioSrc,
+    imageAlt: "Portfolio website preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "TypeScript", Icon: TypeScriptBadgeIcon },
@@ -71,9 +87,11 @@ const projects: Project[] = [
     title: "Luminescence",
     date: "Jan 2026 - May 2026",
     summary:
-      "Puzzle-adventure game built in Unity focusing on interactive gameplay mechanics, UI flow, and scene management.",
+      "Action-adventure game built in Unity focusing on interactive gameplay mechanics, UI flow, and scene management.",
     accent: "#8B5CF6",
     monogram: "LM",
+    imageSrc: luminescenceSrc,
+    imageAlt: "Luminescence game preview",
     badges: [
       { label: "Unity", Icon: UnityBadgeIcon },
       { label: "C#", Icon: CSharpBadgeIcon },
@@ -81,12 +99,14 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Volunter Volunteering Platform",
+    title: "Volunter: Volunteering Platform",
     date: "Sept 2025 - Dec 2025",
     summary:
       "Platform connecting volunteers with organizations through location-aware opportunities, dashboards, and REST APIs.",
     accent: "#10B981",
     monogram: "VP",
+    imageSrc: volunterSrc,
+    imageAlt: "Volunter volunteering platform preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "TypeScript", Icon: TypeScriptBadgeIcon },
@@ -97,12 +117,14 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "AI EMS Vehicle Routing",
+    title: "EMS Vehicle Routing AI Pipeline",
     date: "Sept 2025 - Dec 2025",
     summary:
-      "AI-driven emergency vehicle routing system that predicts traffic conditions and recommends optimal routes.",
+      "AI-driven emergency vehicle routing system that predicts traffic conditions and recommends optimal routes in Houston area.",
     accent: "#E11D48",
     monogram: "AE",
+    imageSrc: aiEmsSrc,
+    imageAlt: "EMS vehicle routing AI pipeline preview",
     badges: [
       { label: "Python", Icon: PythonBadgeIcon },
       { label: "PyTorch", Icon: PyTorchBadgeIcon },
@@ -111,12 +133,14 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Zentra Credit Card Analyzer",
+    title: "Zentra: AI Credit Card Analyzer",
     date: "Sept 2025",
     summary:
-      "AI-powered credit card recommendation tool that analyzes spending habits to recommend the best rewards cards.",
+      "AI/finance web app created during HackRice that analyzes spending habits and recommends credit cards for maximum rewards and cashback.",
     accent: "#2563EB",
     monogram: "ZA",
+    imageSrc: zentraSrc,
+    imageAlt: "Zentra credit card analyzer preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "TypeScript", Icon: TypeScriptBadgeIcon },
@@ -127,12 +151,14 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Tecpacs Package Manager",
+    title: "Tecpacs: Package Manager",
     date: "Jul 2025",
     summary:
-      "Lightweight package manager created during HackRice that simplifies sharing and installing small software packages.",
+      "Lightweight package manager created during Data Hackfest that simplifies sharing and installing small software packages and code snippets.",
     accent: "#0F766E",
     monogram: "TP",
+    imageSrc: tecpacsSrc,
+    imageAlt: "Tecpacs package manager preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "TypeScript", Icon: TypeScriptBadgeIcon },
@@ -148,6 +174,8 @@ const projects: Project[] = [
       "Social platform for discovering and sharing interesting places with posts, uploads, comments, and maps.",
     accent: "#F97316",
     monogram: "NP",
+    imageSrc: newPlacesSrc,
+    imageAlt: "NewPlaces social platform preview",
     badges: [
       { label: "React", Icon: ReactTechBadgeIcon },
       { label: "JavaScript", Icon: JavaScriptBadgeIcon },
@@ -162,6 +190,8 @@ const projects: Project[] = [
       "Arcade-style game where players upgrade their vehicle while progressing through increasingly difficult levels.",
     accent: "#14B8A6",
     monogram: "UB",
+    imageSrc: uybSrc,
+    imageAlt: "Upgrade Your Bumper game preview",
     badges: [
       { label: "Unity", Icon: UnityBadgeIcon },
       { label: "C#", Icon: CSharpBadgeIcon },
@@ -169,54 +199,6 @@ const projects: Project[] = [
     ],
   },
 ];
-
-type ProjectPreviewProps = {
-  title: string;
-  monogram: string;
-  accent: string;
-};
-
-function ProjectPreview({ title, monogram, accent }: ProjectPreviewProps) {
-  const gradientId = `${monogram.toLowerCase()}-gradient`;
-
-  return (
-    <svg
-      aria-label={title}
-      role="img"
-      className="h-full w-full"
-      viewBox="0 0 320 320"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient id={gradientId} x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stopColor={accent} stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#050505" stopOpacity="1" />
-        </linearGradient>
-      </defs>
-      <rect width="320" height="320" rx="28" fill={`url(#${gradientId})`} />
-      <circle cx="246" cy="74" r="86" fill="white" fillOpacity="0.08" />
-      <circle cx="86" cy="238" r="122" fill={accent} fillOpacity="0.16" />
-      <path
-        d="M-12 242C76 208 146 190 234 120c46-37 78-61 122-77v52c-44 14-78 36-126 74-79 63-147 84-222 109z"
-        fill="white"
-        fillOpacity="0.06"
-      />
-      <text
-        x="50%"
-        y="54%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill="white"
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="84"
-        fontWeight="800"
-        letterSpacing="8"
-      >
-        {monogram}
-      </text>
-    </svg>
-  );
-}
 
 function ProjectsSection() {
   const [hoveredBadgeKey, setHoveredBadgeKey] = useState<string | null>(null);
@@ -243,11 +225,21 @@ function ProjectsSection() {
                 className="self-center h-30 w-30 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black/40 sm:h-28 sm:w-28"
                 style={{ boxShadow: `0 0 0 1px ${project.accent}22 inset` }}
               >
-                <ProjectPreview
-                  title={project.title}
-                  monogram={project.monogram}
-                  accent={project.accent}
-                />
+                {project.imageSrc ? (
+                  <img
+                    className="h-full w-full object-cover"
+                    src={project.imageSrc}
+                    alt={project.imageAlt ?? `${project.title} preview`}
+                  />
+                ) : (
+                  <div
+                    className="flex h-full w-full items-center justify-center bg-black/30 text-lg font-black tracking-[0.2em] text-white/70"
+                    aria-label={project.title}
+                    role="img"
+                  >
+                    {project.monogram}
+                  </div>
+                )}
               </div>
 
               <div className="min-w-0 flex-1">
