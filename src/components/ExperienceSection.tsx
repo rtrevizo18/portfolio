@@ -34,6 +34,7 @@ function ExperienceSection() {
       <div className="flex flex-col gap-8">
         <ExperienceCard
           title="KIPP Texas: Public Schools"
+          date="May 2025 - June 2025"
           roles={["IT Operations Intern"]}
           description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
           logo={KIPPTexasLogo}
@@ -46,6 +47,7 @@ function ExperienceSection() {
         />
         <ExperienceCard
           title="PwC"
+          date="June 2024 - July 2024"
           roles={["Cyber, Risk, & Regulation Consulting Intern"]}
           description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
           logo={PwCLogo}

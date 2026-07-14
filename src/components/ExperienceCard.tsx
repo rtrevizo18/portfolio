@@ -11,6 +11,7 @@ type ExperienceFooterBadge = {
 
 type ExperienceCardProps = {
   title: string;
+  date: string;
   roles: string[];
   description: string;
   logo: ComponentType<{ color: string; width?: number; height?: number }>;
@@ -24,6 +25,7 @@ type ExperienceCardProps = {
 
 function ExperienceCard({
   title,
+  date,
   roles,
   description,
   logo: Logo,
@@ -38,7 +40,9 @@ function ExperienceCard({
   const renderedLogoHeight = logoHeight ?? 34;
   const [isPinnedOpen, setIsPinnedOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [hoveredFooterBadge, setHoveredFooterBadge] = useState<string | null>(null);
+  const [hoveredFooterBadge, setHoveredFooterBadge] = useState<string | null>(
+    null,
+  );
 
   const isExpanded = isPinnedOpen || isHovered;
 
@@ -76,18 +80,26 @@ function ExperienceCard({
         onMouseLeave={() => setIsHovered(false)}
         onFocus={() => setIsHovered(true)}
         onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          if (
+            !event.currentTarget.contains(event.relatedTarget as Node | null)
+          ) {
             setIsHovered(false);
           }
         }}
-        className={`group/card mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-3xl border-2 border-white/45 bg-white/3 p-6 text-left outline-none transition-[max-width,transform,border-color,background-color,box-shadow] duration-700 ease-out sm:p-8 lg:items-stretch lg:gap-8 ${mediaSide === "left" ? "lg:flex-row-reverse" : "lg:flex-row"
-          } ${isExpanded ? "border-white/65 bg-white/6 shadow-[0_28px_70px_rgba(0,0,0,0.38)]" : ""}`}
+        className={`group/card mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-3xl border-2 border-white/45 bg-white/3 p-6 text-left outline-none transition-[max-width,transform,border-color,background-color,box-shadow] duration-700 ease-out sm:p-8 lg:items-stretch lg:gap-8 ${
+          mediaSide === "left" ? "lg:flex-row-reverse" : "lg:flex-row"
+        } ${isExpanded ? "border-white/65 bg-white/6 shadow-[0_28px_70px_rgba(0,0,0,0.38)]" : ""}`}
         style={{ maxWidth: isExpanded ? "calc(100vw - 3rem)" : "72rem" }}
       >
         <div className="max-w-3xl flex-1">
-          <h2 className="font-subway text-[clamp(2.2rem,5.5vw,4.2rem)] font-black leading-[0.9] tracking-wider text-white">
-            {title}
-          </h2>
+          <div className="flex flex-col items-start gap-2">
+            <h2 className="font-subway text-[clamp(2.2rem,5.5vw,4.2rem)] font-black leading-[0.9] tracking-wider text-white">
+              {title}
+            </h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/58 sm:text-[0.85rem]">
+              {date}
+            </p>
+          </div>
           <div
             className="mt-4 flex flex-wrap items-center gap-3 text-md font-semibold uppercase tracking-[0.28em]"
             style={{ color }}
@@ -122,24 +134,31 @@ function ExperienceCard({
         </div>
 
         <div
-          className={`relative min-h-60 overflow-hidden rounded-4xl border border-white/12 bg-black/50 transition-[width,min-height,opacity,transform] duration-700 ease-out lg:flex-none ${mediaSide === "left" ? "lg:mr-auto" : "lg:ml-auto"
-            } ${isExpanded ? "lg:w-[min(42vw,36rem)]" : "lg:w-50"}`}
+          className={`relative min-h-60 overflow-hidden rounded-4xl border border-white/12 bg-black/50 transition-[width,min-height,opacity,transform] duration-700 ease-out lg:flex-none ${
+            mediaSide === "left" ? "lg:mr-auto" : "lg:ml-auto"
+          } ${isExpanded ? "lg:w-[min(42vw,36rem)]" : "lg:w-50"}`}
         >
           <div
-            className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-300 ${isExpanded ? "opacity-0" : "opacity-100"
-              }`}
+            className={`absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-300 ${
+              isExpanded ? "opacity-0" : "opacity-100"
+            }`}
           >
             <div
               className="flex items-center justify-center rounded-3xl p-3 transition-transform duration-500 group-hover/card:scale-[0.98]"
               style={{ width: renderedLogoWidth, height: renderedLogoHeight }}
             >
-              <Logo color={color} width={renderedLogoWidth} height={renderedLogoHeight} />
+              <Logo
+                color={color}
+                width={renderedLogoWidth}
+                height={renderedLogoHeight}
+              />
             </div>
           </div>
 
           <div
-            className={`absolute inset-0 transition-opacity duration-500 ${isExpanded ? "opacity-100" : "opacity-0"
-              }`}
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              isExpanded ? "opacity-100" : "opacity-0"
+            }`}
           >
             {media}
           </div>
