@@ -209,7 +209,7 @@ function ProjectsSection() {
       className="border-t border-white/10 px-6 py-16 sm:px-10 lg:px-14"
     >
       <div className="max-w-5xl">
-        <p className="mb-8 text-[0.68rem] font-semibold uppercase tracking-[0.55em] text-white/80 sm:text-[0.75rem]">
+        <p className="mb-8 font-semibold uppercase tracking-[0.38em] text-white/80 sm:text-2xl">
           Projects
         </p>
       </div>
@@ -233,7 +233,7 @@ function ProjectsSection() {
                   />
                 ) : (
                   <div
-                    className="flex h-full w-full items-center justify-center bg-black/30 text-lg font-black tracking-[0.2em] text-white/70"
+                    className="flex h-full w-full items-center justify-center bg-black/30 text-[1.05rem] font-black tracking-[0.16em] text-white/70"
                     aria-label={project.title}
                     role="img"
                   >
@@ -248,14 +248,14 @@ function ProjectsSection() {
                   style={{ backgroundColor: project.accent }}
                 />
                 <div className="mt-4 flex flex-col items-start gap-2">
-                  <h3 className="font-subway text-[clamp(1.5rem,3vw,2.2rem)] font-black leading-[0.95] tracking-wider text-white">
+                  <h3 className="font-subway text-[clamp(1.35rem,2.6vw,1.95rem)] font-black leading-[0.96] tracking-[0.06em] text-white">
                     {project.title}
                   </h3>
-                  <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/58 sm:text-[0.85rem]">
+                  <p className="text-[0.96rem] font-semibold uppercase tracking-[0.24em] text-white/58 sm:text-[1rem]">
                     {project.date}
                   </p>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-white/70 sm:text-[0.95rem]">
+                <p className="mt-3 text-[1.06rem] leading-6 text-white/70 sm:text-[1.08rem]">
                   {project.summary}
                 </p>
               </div>

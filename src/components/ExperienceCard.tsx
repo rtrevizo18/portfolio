@@ -93,15 +93,15 @@ function ExperienceCard({
       >
         <div className="max-w-3xl flex-1">
           <div className="flex flex-col items-start gap-2">
-            <h2 className="font-subway text-[clamp(2.2rem,5.5vw,4.2rem)] font-black leading-[0.9] tracking-wider text-white">
+            <h2 className="font-subway text-[clamp(2rem,5vw,3.6rem)] font-black leading-[0.92] tracking-[0.06em] text-white">
               {title}
             </h2>
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/58 sm:text-[0.85rem]">
+            <p className="text-[0.96rem] font-semibold uppercase tracking-[0.24em] text-white/58 sm:text-[1rem]">
               {date}
             </p>
           </div>
           <div
-            className="mt-4 flex flex-wrap items-center gap-3 text-md font-semibold uppercase tracking-[0.28em]"
+            className="mt-4 flex flex-wrap items-center gap-3 text-[1.05rem] font-semibold uppercase tracking-[0.2em]"
             style={{ color }}
           >
             {roles.map((role, index) => (
@@ -111,7 +111,7 @@ function ExperienceCard({
               </span>
             ))}
           </div>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-[1.12rem] leading-8 text-white/72 sm:text-[1.16rem]">
             {description}
           </p>
 

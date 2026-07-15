@@ -21,24 +21,25 @@ function HeroSplash() {
 
       <div className="relative flex min-h-screen items-end px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
         <div className="max-w-4xl">
-          <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.55em] text-white/70 sm:text-[0.75rem]">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.38em] text-white/70 sm:text-base">
             Leaving Houston Line...
           </p>
 
-          <h1 className="font-title text-[clamp(4rem,14vw,12rem)] leading-[0.88] tracking-[0.08em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
+          <h1 className="font-title text-[clamp(3.4rem,12vw,10rem)] leading-[0.9] tracking-[0.06em] text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
             RICARDO
+            <br />
+            TREVIZO
           </h1>
 
-          <p className="mt-1 max-w-xl text-lg leading-7 text-white/78 sm:text-base sm:leading-8">
-            Trevizo
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.25em] text-white/60 sm:text-[0.7rem] md:text-[1rem]">
+          <div className="mt-8 flex flex-wrap gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/60 sm:text-[0.84rem] md:text-[0.98rem]">
             <span className="rounded-full border border-white/20 px-4 py-2 backdrop-blur-sm">
-              Software Engineer
+              Web Developer
             </span>
             <span className="rounded-full border border-white/20 px-4 py-2 backdrop-blur-sm">
-              Game Developer
+              Backend Engineer
+            </span>
+            <span className="rounded-full border border-white/20 px-4 py-2 backdrop-blur-sm">
+              Game Designer
             </span>
           </div>
         </div>

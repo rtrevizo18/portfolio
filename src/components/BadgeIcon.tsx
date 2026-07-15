@@ -34,13 +34,13 @@ function BadgeIcon({
       </div>
       {isCompact ? (
         <span
-          className={`pointer-events-none absolute left-1/2 top-full mt-1 w-max -translate-x-1/2 text-[0.55rem] font-semibold uppercase tracking-[0.28em] text-white/65 transition-all duration-200 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"}`}
+          className={`pointer-events-none absolute left-1/2 top-full mt-1 w-max -translate-x-1/2 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/65 transition-all duration-200 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"}`}
         >
           {label}
         </span>
       ) : (
         <span
-          className={`text-[0.62rem] font-semibold uppercase tracking-[0.35em] text-white/65 transition-all duration-200 ${
+          className={`text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-white/65 transition-all duration-200 ${
             isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
           }`}
         >
