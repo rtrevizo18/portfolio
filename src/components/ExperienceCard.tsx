@@ -89,7 +89,6 @@ function ExperienceCard({
         className={`group/card mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-3xl border-2 border-white/45 bg-white/3 p-6 text-left outline-none transition-[max-width,transform,border-color,background-color,box-shadow] duration-700 ease-out sm:p-8 lg:items-stretch lg:gap-8 ${
           mediaSide === "left" ? "lg:flex-row-reverse" : "lg:flex-row"
         } ${isExpanded ? "border-white/65 bg-white/6 shadow-[0_28px_70px_rgba(0,0,0,0.38)]" : ""}`}
-        style={{ maxWidth: isExpanded ? "calc(100vw - 3rem)" : "72rem" }}
       >
         <div className="max-w-3xl flex-1">
           <div className="flex flex-col items-start gap-2">
@@ -101,7 +100,7 @@ function ExperienceCard({
             </p>
           </div>
           <div
-            className="mt-4 flex flex-wrap items-center gap-3 text-[1.05rem] font-semibold uppercase tracking-[0.2em]"
+            className="mt-4 flex flex-wrap items-center gap-3 text-xl font-semibold uppercase tracking-[0.2em]"
             style={{ color }}
           >
             {roles.map((role, index) => (
@@ -135,7 +134,7 @@ function ExperienceCard({
 
         <div
           className={`relative min-h-60 overflow-hidden rounded-4xl border border-white/12 bg-black/50 transition-[width,min-height,opacity,transform] duration-700 ease-out lg:flex-none ${
-            mediaSide === "left" ? "lg:mr-auto" : "lg:ml-auto"
+            mediaSide === "left" ? "lg:mr-auto" : isExpanded ? "" : "lg:ml-auto"
           } ${isExpanded ? "lg:w-[min(42vw,36rem)]" : "lg:w-50"}`}
         >
           <div

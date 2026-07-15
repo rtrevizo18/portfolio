@@ -6,6 +6,7 @@ import aiEmsSrc from "../assets/AI_EMS_Image.png";
 import luminescenceSrc from "../assets/Luminescence_Image.png";
 import newPlacesSrc from "../assets/NewPlaces_Image.png";
 import portfolioSrc from "../assets/Portfolio_Image.png";
+import pyinCppSrc from "../assets/PyinCPP_Image.png";
 import tecpacsSrc from "../assets/Tecpacs_Image.png";
 import uybSrc from "../assets/UYB_Image.png";
 import volunterSrc from "../assets/Volunter_Image.png";
@@ -23,6 +24,7 @@ import {
   PostgreSQLBadgeIcon,
   PythonBadgeIcon,
   PyTorchBadgeIcon,
+  CppBadgeIcon,
   ReactTechBadgeIcon,
   SQLiteBadgeIcon,
   SumoBadgeIcon,
@@ -39,6 +41,11 @@ type ProjectBadge = {
   Icon: BadgeIconComponent;
 };
 
+type ProjectLink = {
+  label: string;
+  href?: string;
+};
+
 type Project = {
   title: string;
   date: string;
@@ -48,7 +55,13 @@ type Project = {
   imageSrc?: string;
   imageAlt?: string;
   badges: ProjectBadge[];
+  links?: ProjectLink[];
 };
+
+const defaultProjectLinks: ProjectLink[] = [
+  { label: "GitHub" },
+  { label: "Live Demo" },
+];
 
 const projects: Project[] = [
   {
@@ -198,6 +211,20 @@ const projects: Project[] = [
       { label: "Unity UI", Icon: CogBadgeIcon },
     ],
   },
+  {
+    title: "PyinCPP",
+    date: "Mar 2024 - Apr 2024",
+    summary:
+      "Python interpreter built in C++ focused on a lightweight runtime and a clean execution pipeline.",
+    accent: "#7C3AED",
+    monogram: "PC",
+    imageSrc: pyinCppSrc,
+    imageAlt: "PyinCPP interpreter preview",
+    badges: [
+      { label: "Python", Icon: PythonBadgeIcon },
+      { label: "C++", Icon: CppBadgeIcon },
+    ],
+  },
 ];
 
 function ProjectsSection() {
@@ -282,6 +309,37 @@ function ProjectsSection() {
                     </div>
                   );
                 })}
+              </div>
+
+              <div className="mt-2 border-t border-white/10 pt-4">
+                <div className="flex flex-wrap items-center justify-end gap-5 text-[0.84rem] font-semibold uppercase tracking-[0.22em] text-white/68">
+                  {(project.links ?? defaultProjectLinks).map(
+                    ({ label, href }) => {
+                      const linkClassName =
+                        "transition-colors hover:text-white hover:underline hover:underline-offset-4";
+
+                      if (href) {
+                        return (
+                          <a
+                            key={label}
+                            className={linkClassName}
+                            href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {label}
+                          </a>
+                        );
+                      }
+
+                      return (
+                        <span key={label} className={linkClassName}>
+                          {label}
+                        </span>
+                      );
+                    },
+                  )}
+                </div>
               </div>
             </div>
           </article>

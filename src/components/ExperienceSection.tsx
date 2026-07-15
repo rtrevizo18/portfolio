@@ -47,7 +47,7 @@ function ExperienceSection() {
           title="KIPP Texas: Public Schools"
           date="May 2025 - June 2025"
           roles={["IT Operations Intern"]}
-          description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+          description="Managed large-scale IT operations for 3,000+ client devices, performing system maintenance, software deployments, and troubleshooting to ensure reliable technology access for staff and students."
           logo={KIPPTexasLogo}
           color="#1E5AA8"
           logoWidth={176}
@@ -60,7 +60,7 @@ function ExperienceSection() {
           title="PwC"
           date="June 2024 - July 2024"
           roles={["Cyber, Risk, & Regulation Consulting Intern"]}
-          description="Worked with the CougarCS team on outreach and web development efforts, helping keep the organization's online presence clear, functional, and up to date."
+          description="Evaluated AI product for a pro-bono consulting engagement by analyzing user data with Python and Power BI, identifying performance insights and workflow bottlenecks that accelerated MVP delivery by 2 weeks."
           logo={PwCLogo}
           color="#FD5108"
           logoWidth={144}
