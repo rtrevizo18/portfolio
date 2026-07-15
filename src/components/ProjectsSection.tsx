@@ -43,7 +43,7 @@ type ProjectBadge = {
 
 type ProjectLink = {
   label: string;
-  href?: string;
+  href: string;
 };
 
 type Project = {
@@ -57,11 +57,6 @@ type Project = {
   badges: ProjectBadge[];
   links?: ProjectLink[];
 };
-
-const defaultProjectLinks: ProjectLink[] = [
-  { label: "GitHub" },
-  { label: "Live Demo" },
-];
 
 const projects: Project[] = [
   {
@@ -79,6 +74,7 @@ const projects: Project[] = [
       { label: "Express.js", Icon: ExpressBadgeIcon },
       { label: "PostgreSQL", Icon: PostgreSQLBadgeIcon },
     ],
+    links: [],
   },
   {
     title: "Portfolio Website",
@@ -95,6 +91,10 @@ const projects: Project[] = [
       { label: "TailwindCSS", Icon: TailwindBadgeIcon },
       { label: "Vite", Icon: ViteBadgeIcon },
     ],
+    links: [
+      { label: "GitHub", href: "https://github.com/rtrevizo18/portfolio" },
+      { label: "Website", href: "https://ricardotrevizo.com" },
+    ],
   },
   {
     title: "Luminescence",
@@ -109,6 +109,12 @@ const projects: Project[] = [
       { label: "Unity", Icon: UnityBadgeIcon },
       { label: "C#", Icon: CSharpBadgeIcon },
       { label: "Unity UI", Icon: CogBadgeIcon },
+    ],
+    links: [
+      {
+        label: "YouTube",
+        href: "https://www.youtube.com/watch?v=_f2bUlMRQ0Q&feature=youtu.be",
+      },
     ],
   },
   {
@@ -128,6 +134,13 @@ const projects: Project[] = [
       { label: "PostgreSQL", Icon: PostgreSQLBadgeIcon },
       { label: "Docker", Icon: DockerBadgeIcon },
     ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/orgs/UHCOSC-4358-Group/repositories",
+      },
+      { label: "Live", href: "https://volunteer-website-39e.web.app/" },
+    ],
   },
   {
     title: "EMS Vehicle Routing AI Pipeline",
@@ -143,6 +156,9 @@ const projects: Project[] = [
       { label: "PyTorch", Icon: PyTorchBadgeIcon },
       { label: "SUMO", Icon: SumoBadgeIcon },
       { label: "ML", Icon: CogBadgeIcon },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/COSC4368-Group-1/traffic-project" },
     ],
   },
   {
@@ -162,6 +178,13 @@ const projects: Project[] = [
       { label: "FastAPI", Icon: FastAPIBadgeIcon },
       { label: "MongoDB", Icon: MongoDBBadgeIcon },
     ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/orgs/HackRice-Finance-Proj/repositories",
+      },
+      { label: "Live", href: "https://zentra-68f75.web.app/" },
+    ],
   },
   {
     title: "Tecpacs: Package Manager",
@@ -179,6 +202,10 @@ const projects: Project[] = [
       { label: "Express.js", Icon: ExpressBadgeIcon },
       { label: "SQLite", Icon: SQLiteBadgeIcon },
     ],
+    links: [
+      { label: "GitHub", href: "https://github.com/rtrevizo18/tecspacs" },
+      { label: "Live", href: "https://frontend-nine-rosy-50.vercel.app/" },
+    ],
   },
   {
     title: "NewPlaces",
@@ -195,6 +222,14 @@ const projects: Project[] = [
       { label: "Express.js", Icon: ExpressBadgeIcon },
       { label: "MongoDB", Icon: MongoDBBadgeIcon },
     ],
+    links: [
+      {
+        label: "Frontend",
+        href: "https://github.com/rtrevizo18/newplaces-frontend",
+      },
+      { label: "API", href: "https://github.com/rtrevizo18/newplaces-api" },
+      { label: "Live", href: "https://newplaces-e2d77.web.app/" },
+    ],
   },
   {
     title: "Upgrade Your Bumper",
@@ -210,6 +245,13 @@ const projects: Project[] = [
       { label: "C#", Icon: CSharpBadgeIcon },
       { label: "Unity UI", Icon: CogBadgeIcon },
     ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Next-Big-Studio/Upgrade-Your-Bumper-Public",
+      },
+      { label: "Itch.io", href: "https://nextbigstudio.itch.io/upgrade-your-bumper-2024" },
+    ],
   },
   {
     title: "PyinCPP",
@@ -223,6 +265,9 @@ const projects: Project[] = [
     badges: [
       { label: "Python", Icon: PythonBadgeIcon },
       { label: "C++", Icon: CppBadgeIcon },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/rtrevizo18/PyinCPP" },
     ],
   },
 ];
@@ -312,33 +357,23 @@ function ProjectsSection() {
               </div>
 
               <div className="mt-2 border-t border-white/10 pt-4">
-                <div className="flex flex-wrap items-center justify-end gap-5 text-[0.84rem] font-semibold uppercase tracking-[0.22em] text-white/68">
-                  {(project.links ?? defaultProjectLinks).map(
-                    ({ label, href }) => {
-                      const linkClassName =
-                        "transition-colors hover:text-white hover:underline hover:underline-offset-4";
+                <div className="flex min-h-5 flex-wrap items-center justify-end gap-5 text-[0.84rem] font-semibold uppercase tracking-[0.22em] text-white/68">
+                  {(project.links ?? []).map(({ label, href }) => {
+                    const linkClassName =
+                      "transition-colors hover:text-white hover:underline hover:underline-offset-4";
 
-                      if (href) {
-                        return (
-                          <a
-                            key={label}
-                            className={linkClassName}
-                            href={href}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {label}
-                          </a>
-                        );
-                      }
-
-                      return (
-                        <span key={label} className={linkClassName}>
-                          {label}
-                        </span>
-                      );
-                    },
-                  )}
+                    return (
+                      <a
+                        key={label}
+                        className={linkClassName}
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
