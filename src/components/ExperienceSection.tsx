@@ -3,11 +3,28 @@ import pwcImage from "../assets/PWC_Image.png";
 import KIPPTexasLogo from "../assets/KIPPTexasLogo";
 import PwCLogo from "../assets/PwCLogo";
 import ExperienceCard from "./ExperienceCard";
-import { CogBadgeIcon, ReactBadgeIcon } from "./BadgeIcons";
+import {
+  CogBadgeIcon,
+  DesktopBadgeIcon,
+  PeopleBadgeIcon,
+  NeuralNetworkBadgeIcon,
+  PowerBIBadgeIcon,
+  PythonBadgeIcon,
+  WrenchBadgeIcon,
+} from "./BadgeIcons";
 
-const footerBadgeIcons = [
+const kippFooterBadgeIcons = [
   { label: "SysAdmin", Icon: CogBadgeIcon },
-  { label: "React", Icon: ReactBadgeIcon },
+  { label: "Hardware", Icon: DesktopBadgeIcon },
+  { label: "Teamwork", Icon: PeopleBadgeIcon },
+  { label: "Maintainence", Icon: WrenchBadgeIcon },
+];
+
+const pwcFooterBadgeIcons = [
+  { label: "AI", Icon: NeuralNetworkBadgeIcon },
+  { label: "Cross-functional", Icon: PeopleBadgeIcon },
+  { label: "PowerBI", Icon: PowerBIBadgeIcon },
+  { label: "Python", Icon: PythonBadgeIcon },
 ];
 
 const kippTexasMedia = (
@@ -54,7 +71,7 @@ function ExperienceSection() {
           logoHeight={50}
           mediaSide="right"
           media={kippTexasMedia}
-          footerBadgeIcons={footerBadgeIcons}
+          footerBadgeIcons={kippFooterBadgeIcons}
         />
         <ExperienceCard
           title="PwC"
@@ -67,7 +84,7 @@ function ExperienceSection() {
           logoHeight={74}
           mediaSide="left"
           media={pwcMedia}
-          footerBadgeIcons={footerBadgeIcons}
+          footerBadgeIcons={pwcFooterBadgeIcons}
         />
       </div>
     </section>

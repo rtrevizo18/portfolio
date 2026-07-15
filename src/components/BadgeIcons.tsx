@@ -154,6 +154,108 @@ export function CppBadgeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function DesktopBadgeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="3.5" y="4.5" width="17" height="11" rx="1.8" />
+      <path d="M9 19.5h6" />
+      <path d="M12 15.5v4" />
+    </svg>
+  );
+}
+
+export function PeopleBadgeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M16.5 20.5v-1.5a3.5 3.5 0 0 0-3.5-3.5H8a3.5 3.5 0 0 0-3.5 3.5v1.5" />
+      <circle cx="10.5" cy="8" r="2.5" />
+      <path d="M20.5 20.5v-1.1a3.2 3.2 0 0 0-2.5-3.1" />
+      <path d="M15.3 6.8a2.1 2.1 0 0 1 0 4.2" />
+    </svg>
+  );
+}
+
+export function WrenchBadgeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M14.2 6.2a4.6 4.6 0 0 0-5.1 6.3L5.2 16.4a1.6 1.6 0 0 0 2.3 2.3l3.9-3.9a4.6 4.6 0 0 0 6.3-5.1l-2.4 2.4-2.1-.1-.1-2.1z" />
+    </svg>
+  );
+}
+
+export function PowerBIBadgeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="5" y="10.5" width="2.8" height="6.5" rx="0.6" />
+      <rect x="10.6" y="7.8" width="2.8" height="9.2" rx="0.6" />
+      <rect x="16.2" y="5.5" width="2.8" height="11.5" rx="0.6" />
+      <path d="M5 18h14" />
+    </svg>
+  );
+}
+
+export function NeuralNetworkBadgeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <circle cx="6" cy="7" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="18" cy="7" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="6" cy="17" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="18" cy="17" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
+      <path d="M7.3 8.2 10.8 11" />
+      <path d="M16.7 8.2 13.2 11" />
+      <path d="M7.3 15.8 10.8 13" />
+      <path d="M16.7 15.8 13.2 13" />
+      <path d="M7.7 7h4.6M12.3 7h4M7.7 17h4.6M12.3 17h4" />
+    </svg>
+  );
+}
+
 export function SumoBadgeIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

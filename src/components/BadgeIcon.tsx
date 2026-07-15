@@ -16,6 +16,13 @@ function BadgeIcon({
   size = "md",
 }: BadgeIconProps) {
   const isCompact = size === "sm";
+  const labelLength = label.length;
+  const labelTextClassName =
+    labelLength > 14
+      ? "text-[0.62rem] tracking-[0.18em] max-w-[6.5rem]"
+      : labelLength > 10
+        ? "text-[0.68rem] tracking-[0.24em] max-w-[7.5rem]"
+        : "text-[0.72rem] tracking-[0.3em] max-w-[8.5rem]";
 
   return (
     <div
@@ -40,7 +47,7 @@ function BadgeIcon({
         </span>
       ) : (
         <span
-          className={`text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-white/65 transition-all duration-200 ${
+          className={`${labelTextClassName} text-center font-semibold uppercase leading-tight text-white/65 transition-all duration-200 ${
             isHovered ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
           }`}
         >
