@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import HeroSplash from "./components/HeroSplash";
 import Navbar from "./components/Navbar";
 import ExperienceSection from "./components/ExperienceSection";
+import GamesSection from "./components/GamesSection";
 import ProjectsSection from "./components/ProjectsSection";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
+        <GamesSection />
         <Footer />
       </section>
     </main>
