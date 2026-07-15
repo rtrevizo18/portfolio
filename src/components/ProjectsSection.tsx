@@ -158,7 +158,10 @@ const projects: Project[] = [
       { label: "ML", Icon: CogBadgeIcon },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/COSC4368-Group-1/traffic-project" },
+      {
+        label: "GitHub",
+        href: "https://github.com/COSC4368-Group-1/traffic-project",
+      },
     ],
   },
   {
@@ -250,7 +253,10 @@ const projects: Project[] = [
         label: "GitHub",
         href: "https://github.com/Next-Big-Studio/Upgrade-Your-Bumper-Public",
       },
-      { label: "Itch.io", href: "https://nextbigstudio.itch.io/upgrade-your-bumper-2024" },
+      {
+        label: "Itch.io",
+        href: "https://nextbigstudio.itch.io/upgrade-your-bumper-2024",
+      },
     ],
   },
   {
@@ -266,9 +272,7 @@ const projects: Project[] = [
       { label: "Python", Icon: PythonBadgeIcon },
       { label: "C++", Icon: CppBadgeIcon },
     ],
-    links: [
-      { label: "GitHub", href: "https://github.com/rtrevizo18/PyinCPP" },
-    ],
+    links: [{ label: "GitHub", href: "https://github.com/rtrevizo18/PyinCPP" }],
   },
 ];
 
