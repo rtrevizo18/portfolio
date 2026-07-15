@@ -63,7 +63,7 @@ const projects: Project[] = [
     title: "CCS Recruitment Portal (WIP)",
     date: "Jul 2026 - Present",
     summary:
-      "Internal recruiting platform that helps CougarCS source, organize, and manage internship opportunities and company outreach.",
+      "Building a talent-sourcing platform for CougarCS that streamlines recruiter access to student profiles through advanced filtering, searchable skill portfolios, and customizable candidate discovery searching.",
     accent: "#1E5AA8",
     monogram: "CS",
     imageSrc: cougarCSPortalSrc,
