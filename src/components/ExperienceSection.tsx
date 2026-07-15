@@ -1,4 +1,5 @@
-import portraitSrc from "../assets/Ricardo_Trevizo_Image.png";
+import kippTexasImage from "../assets/KIPPTexas_Image.png";
+import pwcImage from "../assets/PWC_Image.png";
 import KIPPTexasLogo from "../assets/KIPPTexasLogo";
 import PwCLogo from "../assets/PwCLogo";
 import ExperienceCard from "./ExperienceCard";
@@ -9,11 +10,21 @@ const footerBadgeIcons = [
   { label: "React", Icon: ReactBadgeIcon },
 ];
 
-const sharedMedia = (
+const kippTexasMedia = (
   <div className="absolute inset-0 p-4">
     <img
       className="h-full w-full rounded-3xl object-cover object-center"
-      src={portraitSrc}
+      src={kippTexasImage}
+      alt="Ricardo Trevizo portrait"
+    />
+  </div>
+);
+
+const pwcMedia = (
+  <div className="absolute inset-0 p-4">
+    <img
+      className="h-full w-full rounded-3xl object-cover object-center"
+      src={pwcImage}
       alt="Ricardo Trevizo portrait"
     />
   </div>
@@ -42,7 +53,7 @@ function ExperienceSection() {
           logoWidth={176}
           logoHeight={50}
           mediaSide="right"
-          media={sharedMedia}
+          media={kippTexasMedia}
           footerBadgeIcons={footerBadgeIcons}
         />
         <ExperienceCard
@@ -55,7 +66,7 @@ function ExperienceSection() {
           logoWidth={144}
           logoHeight={74}
           mediaSide="left"
-          media={sharedMedia}
+          media={pwcMedia}
           footerBadgeIcons={footerBadgeIcons}
         />
       </div>
