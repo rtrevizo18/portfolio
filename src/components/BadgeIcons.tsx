@@ -197,15 +197,11 @@ export function WrenchBadgeIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
+      viewBox="0 0 16 16"
       {...props}
     >
-      <path d="M14.2 6.2a4.6 4.6 0 0 0-5.1 6.3L5.2 16.4a1.6 1.6 0 0 0 2.3 2.3l3.9-3.9a4.6 4.6 0 0 0 6.3-5.1l-2.4 2.4-2.1-.1-.1-2.1z" />
+      <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11z" />
     </svg>
   );
 }

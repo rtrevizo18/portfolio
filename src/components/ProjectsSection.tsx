@@ -80,7 +80,7 @@ const projects: Project[] = [
     title: "Portfolio Website",
     date: "Jul 2026 - Present",
     summary:
-      "Personal portfolio showcasing projects, experience, resume, and technical skills with a polished, accessible UI.",
+      "Personal portfolio showcasing projects, experience, resume, and technical skills. You're on it right now!",
     accent: "#FD5108",
     monogram: "PW",
     imageSrc: portfolioSrc,
@@ -93,14 +93,14 @@ const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/rtrevizo18/portfolio" },
-      { label: "Website", href: "https://ricardotrevizo.com" },
+      { label: "Go here?", href: "https://ricardotrevizo.com" },
     ],
   },
   {
     title: "Luminescence",
     date: "Jan 2026 - May 2026",
     summary:
-      "Action-adventure game built in Unity focusing on interactive gameplay mechanics, UI flow, and scene management.",
+      "2D top-down action RPG with snappy gameplay mechanics, awesome bosses, and light vs. dark artstyle!",
     accent: "#8B5CF6",
     monogram: "LM",
     imageSrc: luminescenceSrc,
@@ -121,7 +121,7 @@ const projects: Project[] = [
     title: "Volunter: Volunteering Platform",
     date: "Sept 2025 - Dec 2025",
     summary:
-      "Platform connecting volunteers with organizations through location-aware opportunities, dashboards, and REST APIs.",
+      "Platform connecting volunteers with organizations through admin dashboards and geo-location searches.",
     accent: "#10B981",
     monogram: "VP",
     imageSrc: volunterSrc,
@@ -168,7 +168,7 @@ const projects: Project[] = [
     title: "Zentra: AI Credit Card Analyzer",
     date: "Sept 2025",
     summary:
-      "AI/finance web app created during HackRice that analyzes spending habits and recommends credit cards for maximum rewards and cashback.",
+      "AI-powered finance web app created during the HackRice Hackathon that analyzes spending habits and recommends credit cards for maximum rewards and cashback.",
     accent: "#2563EB",
     monogram: "ZA",
     imageSrc: zentraSrc,
@@ -193,7 +193,7 @@ const projects: Project[] = [
     title: "Tecpacs: Package Manager",
     date: "Jul 2025",
     summary:
-      "Lightweight package manager created during Data Hackfest that simplifies sharing and installing small software packages and code snippets.",
+      "Lightweight package manager created during the Data Hackfest Hackathon that simplifies sharing and installing small software packages and code snippets.",
     accent: "#0F766E",
     monogram: "TP",
     imageSrc: tecpacsSrc,
@@ -207,7 +207,7 @@ const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/rtrevizo18/tecspacs" },
-      { label: "Live", href: "https://frontend-nine-rosy-50.vercel.app/" },
+      { label: "Website", href: "https://frontend-nine-rosy-50.vercel.app/" },
     ],
   },
   {
@@ -227,18 +227,21 @@ const projects: Project[] = [
     ],
     links: [
       {
-        label: "Frontend",
+        label: "Frontend GitHub",
         href: "https://github.com/rtrevizo18/newplaces-frontend",
       },
-      { label: "API", href: "https://github.com/rtrevizo18/newplaces-api" },
-      { label: "Live", href: "https://newplaces-e2d77.web.app/" },
+      {
+        label: "Backend GitHub",
+        href: "https://github.com/rtrevizo18/newplaces-api",
+      },
+      { label: "Website", href: "https://newplaces-e2d77.web.app/" },
     ],
   },
   {
     title: "Upgrade Your Bumper",
     date: "Aug 2024 - Dec 2024",
     summary:
-      "Arcade-style game where players upgrade their vehicle while progressing through increasingly difficult levels.",
+      "Action-rougelike racing game where players upgrade their vehicle while progressing through increasingly difficult levels.",
     accent: "#14B8A6",
     monogram: "UB",
     imageSrc: uybSrc,
@@ -263,7 +266,7 @@ const projects: Project[] = [
     title: "PyinCPP",
     date: "Mar 2024 - Apr 2024",
     summary:
-      "Python interpreter built in C++ focused on a lightweight runtime and a clean execution pipeline.",
+      "Python interpreter built in C++ focused on a lightweight runtime.",
     accent: "#7C3AED",
     monogram: "PC",
     imageSrc: pyinCppSrc,
