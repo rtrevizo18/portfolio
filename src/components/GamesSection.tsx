@@ -3,13 +3,22 @@ import { useEffect, useState } from "react";
 type RecentGame = {
   appid: number;
   name: string;
-  playtime_2weeks: number;
-  playtime_forever: number;
-  img_icon_url: string;
+  playtime2Weeks: number;
+  playtimeForever: number;
+  image?: string;
 };
 
-const RECENT_GAMES_URL =
-  "https://g4mfoc650k.execute-api.us-east-1.amazonaws.com/default/api/recent-games";
+const RECENT_GAMES_URL = "/recent-games.json";
+
+type RecentGameApiRecord = {
+  appid: number;
+  name: string;
+  playtime2Weeks?: number;
+  playtimeForever?: number;
+  playtime_2weeks?: number;
+  playtime_forever?: number;
+  image?: string;
+};
 
 function formatMinutes(minutes: number) {
   if (minutes < 60) {
@@ -28,6 +37,16 @@ function formatMinutes(minutes: number) {
 
 function buildSteamImageUrl(appid: number) {
   return `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${appid}/capsule_616x353.jpg`;
+}
+
+function normalizeGame(record: RecentGameApiRecord): RecentGame {
+  return {
+    appid: record.appid,
+    name: record.name,
+    playtime2Weeks: record.playtime2Weeks ?? record.playtime_2weeks ?? 0,
+    playtimeForever: record.playtimeForever ?? record.playtime_forever ?? 0,
+    image: record.image,
+  };
 }
 
 function getGameInitials(name: string) {
@@ -60,8 +79,8 @@ function GamesSection() {
           throw new Error(`Request failed with status ${response.status}`);
         }
 
-        const data = (await response.json()) as RecentGame[];
-        setGames(data.slice(0, 3));
+        const data = (await response.json()) as RecentGameApiRecord[];
+        setGames(data.map(normalizeGame).slice(0, 3));
       } catch (fetchError) {
         if (
           fetchError instanceof DOMException &&
@@ -95,8 +114,8 @@ function GamesSection() {
           Games
         </p>
         <p className="max-w-4xl text-[1.02rem] leading-7 text-white/80 sm:text-[1.08rem]">
-          The three most recent games I&apos;ve been playing! Pulled live from
-          my Steam activity through AWS Lambda.
+          The three most recent games I&apos;ve been playing, loaded directly
+          from my Steam Activity through AWS Lambda!
         </p>
       </div>
 
@@ -144,7 +163,7 @@ function GameCard({ game }: GameCardProps) {
         ) : (
           <img
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            src={buildSteamImageUrl(game.appid)}
+            src={game.image ?? buildSteamImageUrl(game.appid)}
             alt={`${game.name} artwork`}
             loading="lazy"
             onError={() => setImageFailed(true)}
@@ -159,8 +178,8 @@ function GameCard({ game }: GameCardProps) {
         </h3>
 
         <div className="mt-3 flex items-center justify-between gap-4 text-[0.9rem] font-semibold uppercase tracking-[0.22em] text-white/60">
-          <span>Total: {formatMinutes(game.playtime_forever)}</span>
-          <span>Recent: {formatMinutes(game.playtime_2weeks)}</span>
+          <span>Total: {formatMinutes(game.playtimeForever)}</span>
+          <span>Recent: {formatMinutes(game.playtime2Weeks)}</span>
         </div>
       </div>
     </article>

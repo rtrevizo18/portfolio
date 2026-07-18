@@ -17,15 +17,6 @@ function Footer() {
             ricardotrevizo18@gmail.com
           </a>
         </div>
-        <div className="space-y-3">
-          <div>Phone</div>
-          <a
-            className="block text-white/75 transition-colors hover:text-white"
-            href="tel:+13468132836"
-          >
-            346-813-2836
-          </a>
-        </div>
         <div className="space-y-4">
           <div>Resume</div>
           <a
